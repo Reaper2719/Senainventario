@@ -1,0 +1,59 @@
+Crear base de datos desde la Consola usando psql:
+
+psql -U postgres -c "CREATE DATABASE gestiondb";
+psql -U postgres -d gestiondb -f "./init.sql"
+
+
+Eliminar una base de datos:
+
+psql -U postgres
+REVOKE CONNECT ON DATABASE gestiondb FROM PUBLIC;
+SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'gestiondb';
+DROP DATABASE gestiondb;
+
+
+Conectarse a la BD creada:
+psql -U postgres -d dbgeceai -h localhost -p 5432
+Password: sena2024
+Password Sena:Sena2024*
+
+Activar venv:
+python -m venv apidb
+.\apidb\Scripts\activate
+
+python.exe -m pip install --upgrade pip
+
+
+
+.\data_proc\Scripts\activate  
+
+uvicorn main:app --reload   
+
+Copiar archivos desde Host a MV por ventana de comandos:
+
+Pasos:
+1. Abre la línea de comandos.
+2 Conéctate a la máquina virtual usando sftp:
+
+sftp usuario@ip_de_la_mv
+
+3. Navega a la carpeta donde quieres copiar el archivo en la máquina virtual usando cd.
+4. Usa el comando put para copiar el archivo comprimido:
+
+put /ruta/local/archivo.zip
+pip install -r .\requirements.txt
+
+
+Conectarse a la BD desde la línea de comandos:
+
+ psql -U postgres -h localhost -W
+
+ Password: Sena2024*
+
+ Ejecutar la API
+
+ PS D:\Gestion_Energia\BaseDatos\dbgeceai> uvicorn App.main:app --reload
+
+ Hacer pruebas:
+
+ http://127.0.0.1:8000/docs#/default/read_usuario_usuarios__UserID__get
